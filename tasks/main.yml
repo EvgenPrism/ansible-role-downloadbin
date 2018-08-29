@@ -25,6 +25,7 @@
     force: yes
     mode: "{{ db_mode }}"
     checksum: "sha1:{{ db_sha1 }}"
+    timeout: 1000
   when: not(download_stats.stat.checksum is defined and download_stats.stat.checksum == db_sha1)
   notify: "{{ db_notify }}"
 
